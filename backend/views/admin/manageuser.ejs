@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Inclub - Single Property HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="/css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="/css/all.min.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="/css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="/css/custom.css" rel="stylesheet" media="screen">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--<style>
+    .card {
+        width: 20rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(135deg, #959494, #ffffff);
+        color: #333;
+    }
+    .card-body {
+        padding: 18px;
+    }
+    .card-title {
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+    p {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+</style>-->
+<%-include('../partials/headerfiles.html')%>
+
+
+</head>
+<body onload="ReadgaurdData()">
+
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="/images/loader.svg" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
+<!-- Header Start -->
+<%-include('../partials/adminheader')%>
+<!-- Header End -->
+
+
+<!-- Page Header Start -->
+<div class="page-header parallaxie" style="background-image: url('/images/hero-bg-2.jpg')" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Page Header Box Start -->
+                <div class="page-header-box">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">User Pannel</h1>
+
+                </div>
+                <!-- Page Header Box End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+
+
+<!--card-->
+
+<h2 class="text-center mb-4"> List Of Users(Residents)</h2>
+<div class="row " style="padding-left: 50px" id="cards">
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<<!-- Jquery Library File -->
+<script src="/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap js file -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Validator js file -->
+<script src="/js/validator.min.js"></script>
+<!-- SlickNav js file -->
+<script src="/js/jquery.slicknav.js"></script>
+<!-- Swiper js file -->
+<script src="/js/swiper-bundle.min.js"></script>
+<!-- Counter js file -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Magnific js file -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- SmoothScroll -->
+<script src="/js/SmoothScroll.js"></script>
+<!-- Parallax js -->
+<script src="/js/parallaxie.js"></script>
+<!-- MagicCursor js file -->
+<script src="/js/gsap.min.js"></script>
+<script src="/js/magiccursor.js"></script>
+<!-- Text Effect js file -->
+<script src="/js/SplitText.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<!-- YTPlayer js File -->
+<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<!-- Wow js file -->
+<script src="/js/wow.min.js"></script>
+<!-- Main Custom js file -->
+<script src="/js/function.js"></script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="/email.js"></script>
+
+
+
+
+<script>
+
+    async function ReadgaurdData() {
+        try {
+
+            var res = await fetch('/admin/viewuserdata');
+            res = await res.json();
+            var records = res.records;
+            // console.log(records);
+            var html = ``;
+            for (var x of records)
+            {
+                let timestamp=x.date;
+                let dateObj = new Date(timestamp);
+                let issue = dateObj.toISOString().split("T")[0];
+
+
+                html += `<tr>`
+                html += `<td>
+
+   <div class="container col-md-4 mb-3" >
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">User Details</h5>
+ <div class="text-center"><img src="${x.photo}" class="card-img-top mb-2" alt="Profile Picture" style="width: 100px; height: 100px ; border-radius: 50%; object-fit: cover; margin: 15px auto 0; border: 4px solid #1c1008;"></div>
+
+        <p><strong>Name:</strong> <span id="name">${x.name}</span></p>
+        <p><strong>Phone Number:</strong> <span id="number">${x.mobile}</span></p>
+        <p><strong>Email:</strong> <span id="email">${x.email}</span></p>
+        <p><strong>Floor Number/ Block Name:</strong> <span id="aadhar">${x.floor}</span></p>
+        <p><strong>Flat Number:</strong> <span id="gate">${x.flat}</span></p>
+        <p><strong>Number Of family Members:</strong> <span id="shift">${x.members}</span></p>
+        <p ><strong>Date-of-Movein</strong> <span id="date" >${issue}</span></p>`
+                html+=` <button type="button" class ="btn btn-danger btn-sm border-white mt-2 w-50" onclick="remove(${x.id})">Remove</button>
+
+                </div>
+</div></div></td>`
+                html += `</tr>`
+                }
+
+            document.getElementById('cards').innerHTML = html;
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+
+
+
+
+    async function remove(id)
+    {
+        try{
+            var res = await fetch('/admin/remove/'+ id, {
+            });
+            res = await res.json();
+            ReadgaurdData()
+        }catch (e)
+        {
+            console.log(e.message);
+        }
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Inclub - Single Property HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="/css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="/css/all.min.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="/css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="/css/custom.css" rel="stylesheet" media="screen">
+
+<%-include('../partials/headerfiles.html')%>
+   <!-- <style>
+        body {
+            background-color: #f4f6f9; /* Light grey for a modern feel */
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .card {
+            width: 350px;
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .residents-card {
+            background: linear-gradient(135deg, #001F3F, #004080); /* Gradient Navy Blue */
+        }
+        .guards-card {
+            background: linear-gradient(135deg, #001F3F, #004080); /* Gradient Orange */
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .card-number {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .icon {
+            font-size: 60px;
+            opacity: 0.2;
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+        }
+    </style>-->
+</head>
+<body>
+
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
+<!-- Header Start -->
+<%-include('../partials/adminheader')%>
+<!-- Header End -->
+
+
+<!-- Page Header Start -->
+<!--<div class="space50"></div>-->
+<div class="space30"></div>
+<div class="inner-header-area">
+    <div class="containe-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="inner-header heading1">
+                    <h2>Dashboard</h2>
+                    <div class="space28"></div>
+                    <p><a href="/user/userdash">Home</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                            <path d="M1.5 1.74997L7.75 7.99997L1.5 14.25" stroke="#1B1B1B" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Admin Dashboard
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="inner-images">
+                    <img src="/assets/img/all-images/hero/hero-img9.png" alt="housa">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!--cards-->
+
+
+
+
+
+<div class="mt-5" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: auto; width: 90%;">
+    <div style="flex: 1; min-width: 400px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #001F3F; margin-bottom: 20px;">Residents & Security Guards</h2>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <div style="flex: 1; min-width: 400px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #001F3F; margin-bottom: 20px;">Monthly Registrations</h2>
+        <canvas id="lineChart"></canvas>
+    </div>
+</div>
+
+<%-include('../partials/footer.html')%>
+
+
+
+
+
+<!-- Jquery Library File -->
+<script src="/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap js file -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Validator js file -->
+<script src="/js/validator.min.js"></script>
+<!-- SlickNav js file -->
+<script src="/js/jquery.slicknav.js"></script>
+<!-- Swiper js file -->
+<script src="/js/swiper-bundle.min.js"></script>
+<!-- Counter js file -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Magnific js file -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- SmoothScroll -->
+<script src="/js/SmoothScroll.js"></script>
+<!-- Parallax js -->
+<script src="/js/parallaxie.js"></script>
+<!-- MagicCursor js file -->
+<!--<script src="/js/gsap.min.js"></script>-->
+<!--<script src="/js/magiccursor.js"></script>-->
+<!-- Text Effect js file -->
+<script src="/js/SplitText.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<!-- YTPlayer js File -->
+<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<!-- Wow js file -->
+<script src="/js/wow.min.js"></script>
+<!-- Main Custom js file -->
+<script src="/js/function.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<%-include('../partials/scripts.html')%>
+
+<script>
+    // Bar Chart - Residents & Security Guards Count
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Residents', 'Security Guards'],
+            datasets: [{
+                label: 'Count',
+                data: [250, 15],
+                backgroundColor: ['#001F3F', '#FF6600'],
+                borderColor: ['#004080', '#FF4500'],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Line Chart - Monthly Registrations
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    new Chart(lineCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Residents Registered',
+                data: [20, 35, 40, 50, 55, 65],
+                borderColor: '#001F3F',
+                backgroundColor: 'rgba(0, 31, 63, 0.2)',
+                borderWidth: 2
+            }, {
+                label: 'Guards Registered',
+                data: [2, 5, 8, 10, 12, 15],
+                borderColor: '#FF6600',
+                backgroundColor: 'rgba(255, 102, 0, 0.2)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

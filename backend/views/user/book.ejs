@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Inclub - Single Property HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="/css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="/css/all.min.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="/css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="/css/custom.css" rel="stylesheet" media="screen">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <%-include('../partials/headerfiles.html')%>
+    <style>
+        .error{
+            color: red;
+
+        }
+        .card {
+            width: 20rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #959494, #ffffff);
+            color: #333;
+        }
+        .card-body {
+            padding: 18px;
+        }
+        .card-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+    </style>
+
+
+
+</head>
+<body  onload="fetchbookeddata()">
+
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt="housa"></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
+<!-- Header Start -->
+<%-include('../partials/userheader')%>
+<!-- Header End -->
+
+<div class="space30"></div>
+
+<!-- Page Header Start -->
+<div class="inner-header-area">
+    <div class="containe-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="inner-header heading1">
+                    <h2>Book a Helper</h2>
+                    <div class="space28"></div>
+                    <p><a href="/user/userdash">Home</a> <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                            <path d="M1.5 1.74997L7.75 7.99997L1.5 14.25" stroke="#1B1B1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg> Book a Helper</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="inner-images">
+                    <img src="/assets/img/all-images/hero/hero-img9.png" alt="housa">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+
+<!-- Section Title Start -->
+<div class="section-title text-center mt-3">
+
+    <h2 class="text-anime-style-2" >Choose<span> your Requirement</span></h2>
+</div>
+<!-- Section Title End -->
+
+<div class="container mt-5 mb-5" >
+
+    <form id="regsform">
+        <div class="row">
+
+
+            <div class="form-group mb-3  offset-md-3 w-50" >
+                <label for="servicetype" class="form-label">Service Type</label>
+                <select class="form-select" onchange="fetchdata(this.value)"  id="servicetype" name="servicetype" required>
+                    <option selected disabled>Select service</option>
+                    <option value="Electrican">Electrican</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Housekeeping">Housekeeping</option>
+                    <option value="Cook">Cook</option>
+                    <option value="Driver">Driver</option>
+                </select>
+            </div>
+            <input type="hidden" id="helperId">
+
+
+        </div>
+
+    </form>
+</div>
+
+
+<!--card-->
+<!-- Section Title Start -->
+<div class="section-title text-center mt-3">
+
+    <h2 class="" >helpers/<span> Service Provider</span></h2>
+</div>
+<!-- Section Title End -->
+<div class="row " style="padding-left: 50px" id="cards">
+
+</div>
+
+
+<!-- Section Title Start -->
+<div class="section-title text-center mt-3">
+
+    <h2 class="" >helpers/<span> Service Provider Booked By you</span></h2>
+</div>
+<!-- Section Title End -->
+<div class="row " style="padding-left: 6em" id="cards2">
+
+</div>
+
+
+
+
+<!-- Modal -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Booking Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div  class="container">
+            <form>
+                <input type="date" name="date" class="form-control mt-3 mb-2" id="date" placeholder="Date Of Booking" required>
+                <textarea type="text" name="instruction" rows="4" class="form-control" id="instruction" placeholder="instructions for helper" required></textarea>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" onclick="booknow()" data-bs-dismiss="modal">Confim Your Booking</button>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<<!-- Jquery Library File -->
+<script src="/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap js file -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Validator js file -->
+<script src="/js/validator.min.js"></script>
+<!-- SlickNav js file -->
+<script src="/js/jquery.slicknav.js"></script>
+<!-- Swiper js file -->
+<script src="/js/swiper-bundle.min.js"></script>
+<!-- Counter js file -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Magnific js file -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- SmoothScroll -->
+<script src="/js/SmoothScroll.js"></script>
+<!-- Parallax js -->
+<script src="/js/parallaxie.js"></script>
+<!-- MagicCursor js file -->
+<script src="/js/gsap.min.js"></script>
+<!--<script src="/js/magiccursor.js"></script>-->
+<!-- Text Effect js file -->
+<script src="/js/SplitText.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<!-- YTPlayer js File -->
+<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<!-- Wow js file -->
+<script src="/js/wow.min.js"></script>
+<!-- Main Custom js file -->
+<script src="/js/function.js"></script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="/email.js"></script>
+
+
+
+
+<script>
+
+
+
+    async function fetchbookeddata() {
+        try {
+            // console.log(service)
+            var res = await fetch('/user/fetchhelperbooked');
+            res = await res.json();
+            var records = res.records;
+            console.log(records);
+
+            var html = ``;
+            for (var x of records) {
+
+                html += `<tr>`
+                html += `<td><div class=" col-md-4 mb-3" >
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Helper Details</h5>
+        <p><strong>Name:</strong> <span id="name">${x.helper.name}</span></p>
+        <p><strong>Gender:</strong> <span id="gender">${x.helper.gender}</span></p>
+        <p><strong>Phone Number:</strong> <span id="number">${x.helper.number}</span></p>
+        <p><strong>Email:</strong> <span id="email">${x.helper.email}</span></p>
+        <p><strong>Service Type:</strong> <span id="gate">${x.helper.servicetype}</span></p>
+        <p><strong>Availability:</strong> <span id="shift" style="background-color: #f15b26 ; border-radius: 10px">${x.helper.availability}</span></p>
+        <p><strong>Medical:</strong> <span id="shift">${x.helper.medical}</span></p>
+        <p><strong>Status:</strong> <span id="shift" class="text-success">${x.helper.status} By Admin</span></p>
+
+
+                </div>
+</div></div></td>`
+
+                html += `</tr>`
+
+            }
+            document.getElementById('cards2').innerHTML = html;
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+
+
+
+
+
+    async function fetchdata(service) {
+        try {
+            // console.log(service)
+            var res = await fetch('/user/fetchhelperdata/'+service);
+            res = await res.json();
+            var records = res.records;
+            // console.log(records);
+
+            var html = ``;
+            for (var x of records) {
+
+                    html += `<tr>`
+                    html += `<td><div class=" col-md-4 mb-3" >
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Helper Details</h5>
+        <p><strong>Name:</strong> <span id="name">${x.name}</span></p>
+        <p><strong>Gender:</strong> <span id="gender">${x.gender}</span></p>
+        <p><strong>Phone Number:</strong> <span id="number">${x.number}</span></p>
+        <p><strong>Service Type:</strong> <span id="gate">${x.servicetype}</span></p>
+        <p><strong>Availability:</strong> <span id="shift" style="background-color: #f15b26 ; border-radius: 10px">${x.availability}</span></p>
+        <p><strong>Medical:</strong> <span id="shift">${x.medical}</span></p>
+        <p><strong>Status:</strong> <span id="shift" class="text-success">${x.status} By Admin</span></p>`
+                    html+=`  <button type='button' onclick='showdata(${x.id})' data-bs-toggle='modal' data-bs-target='#exampleModal'class='btn btn-success btn-sm'>Book Now</button>
+
+
+                </div>
+</div></div></td>`
+
+                    html += `</tr>`
+
+            }
+            document.getElementById('cards').innerHTML = html;
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+
+
+
+    async function showdata(id)
+    {
+        document.getElementById("helperId").value=id;
+    }
+
+    async function booknow()
+    {
+        var helperId=document.getElementById("helperId").value;
+
+
+        //
+        // let timestamp=document.getElementById("date").value;
+        // let dateObj = new Date(timestamp);
+        // let issue = dateObj.toISOString().split("T")[0];
+
+
+
+
+        // var date = issue;
+        var date=document.getElementById("date").value;
+        var instruction = document.getElementById("instruction").value;
+
+        // console.log(gender)
+
+        var res= await fetch('/user/booknow', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+
+                helperId: helperId,
+                date: date,
+                instructions:instruction,
+
+
+            })
+        })
+        res = await res.json();
+        console.log(res);
+        if (res.error) {
+            Qual.errordb("Error", res.message);
+        } else {
+            Qual.successdb("Success", res.message);
+
+
+        }
+
+
+    }
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

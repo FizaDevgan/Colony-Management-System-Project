@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Inclub - Single Property HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="/css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="/css/all.min.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="/css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="/css/custom.css" rel="stylesheet" media="screen">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <%-include('../partials/headerfiles.html')%>
+    <style>
+        .error{
+            color: red;
+
+        }
+        .card {
+            width: 20rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #959494, #ffffff);
+            color: #333;
+        }
+        .card-body {
+            padding: 18px;
+        }
+        .card-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+    </style>
+
+
+
+</head>
+<body  onload="fetchcategories()">
+
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
+<!-- Header Start -->
+<%-include('../partials/userheader')%>
+<!-- Header End -->
+<div class="space30"></div>
+<div class="inner-header-area">
+    <div class="containe-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="inner-header heading1">
+                    <h2>Register a Complaint</h2>
+                    <div class="space28"></div>
+                    <p><a href="/user/userdash">Home</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                            <path d="M1.5 1.74997L7.75 7.99997L1.5 14.25" stroke="#1B1B1B" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Register a Complaint
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="inner-images">
+                    <img src="/assets/img/all-images/hero/hero-img9.png" alt="housa">
+                </div>
+            </div>
+        </div>
+        <div  class="row">
+
+
+            <div class="col-md-8 offset-md-2">
+                <div class="container mt-5 mb-5 col-md-10 " >
+
+
+                    <form id="vehicleForm">
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">User Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="User Email" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="oname" class="form-label">Vehicle Owner Name</label>
+                            <input type="text" class="form-control" id="oname" name="oname" placeholder="Vehicle Owner Name" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="type" class="form-label">Vehicle Type</label>
+                            <select class="form-control" id="type" name="type" required>
+                                <option value="">Select Vehicle Type</option>
+                                <option value="Car">Car</option>
+                                <option value="Bike">Bike</option>
+                                <option value="Scooter">Scooter</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            <label for="vnumber" class="form-label">Vehicle Number</label>
+                            <input type="text" class="form-control" id="vnumber" name="vnumber" placeholder="Vehicle Number" required>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            <label for="rc">RC Photo</label>
+                            <input class="form-control" type="file" id="rc" name="rc"  required>
+                        </div>
+
+
+                        <button type="button" onclick="register()" class="vl-btn1">Register</button>
+                    </form>
+
+
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Section Title Start -->
+            <div class="section-title text-center mt-3">
+
+                <h2 class="" >Registered<span> Vehicles</span></h2>
+            </div>
+            <!-- Section Title End -->
+            <div class="row " style="padding-left: 50px" id="cards2">
+                <h4 class="text-center">Your data will be visible here</h4>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Section Title Start -->
+<div class="section-title text-center mt-2">
+
+    <h2 class="text-anime-style-2" data-cursor="-opaque">About<span> your complaint</span></h2>
+</div>
+<!-- Section Title End -->
+
+
+<div  class="row">
+
+
+    <div class="col-md-8 offset-md-2">
+        <div class="container mt-5 mb-5" >
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <form id="vehicleForm">
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">User Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="User Email" required>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label for="type" class="form-label">Complaint Type</label>
+                <select id="type" class="form-control" name="type" required>
+
+                </select>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label for="description" class="form-label">Description</label><br>
+                <textarea type="text" class="form-control" id="description" name="description" rows="5" placeholder="description about complaint" required></textarea>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label for="date" class="form-label">Date of Complaint Registration</label>
+                <input type="date" class="form-control" id="date" name="date"  required>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label for="suggestion" class="form-label">Suggestions</label><br>
+                <textarea type="text" class="form-control"  id="suggestion" name="suggestion" rows="5" placeholder="suggestion about complaint " required></textarea>
+            </div>
+
+
+            <button type="button" onclick="register()" class="vl-btn1">Register</button>
+        </form>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!-- Section Title Start -->
+<div class="section-title text-center mt-3">
+
+    <h2 class="text-center" data-cursor="-opaque">Your Registered<span> Vehicles</span></h2>
+</div>
+<!-- Section Title End -->
+<div class="row " style="padding-left: 50px" id="cards2">
+
+</div>
+
+
+
+<%-include('../partials/scripts.html')%>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<<!-- Jquery Library File -->
+<script src="/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap js file -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Validator js file -->
+<script src="/js/validator.min.js"></script>
+<!-- SlickNav js file -->
+<script src="/js/jquery.slicknav.js"></script>
+<!-- Swiper js file -->
+<script src="/js/swiper-bundle.min.js"></script>
+<!-- Counter js file -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Magnific js file -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- SmoothScroll -->
+<script src="/js/SmoothScroll.js"></script>
+<!-- Parallax js -->
+<script src="/js/parallaxie.js"></script>
+<!-- MagicCursor js file -->
+<!--<script src="/js/gsap.min.js"></script>-->
+<!--<script src="/js/magiccursor.js"></script>-->
+<!-- Text Effect js file -->
+<script src="/js/SplitText.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<!-- YTPlayer js File -->
+<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<!-- Wow js file -->
+<script src="/js/wow.min.js"></script>
+<!-- Main Custom js file -->
+<script src="/js/function.js"></script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!--<script src="/email.js"></script>-->
+
+
+
+
+<script>
+
+     // $(document).ready(()=>{
+     //     fetchcategories()
+     // });
+
+
+
+    async function fetchcategories(){
+        fetchbookeddata()
+        var res = await fetch('/user/fetchcategory');
+        res = await res.json();
+        var records = res.records;
+        // console.log(records);
+        var html =`<option value="">Select category</option>`
+        for( var x of records)
+        {
+            html+=`<option value="${x.id}">${x.type}</option>`
+        }
+        document.getElementById("type").innerHTML=html;
+    }
+
+
+
+
+
+
+    async function register()
+    {
+
+        if($("#vehicleForm").valid()) {
+            var email = document.getElementById("email").value;
+            var type = document.getElementById("type").value;
+            var description = document.getElementById("description").value;
+            var date = document.getElementById("date").value;
+            var suggestion = document.getElementById("suggestion").value;
+
+
+            var formData = new FormData();
+            formData.append('email',email)
+            formData.append('type',type)
+            formData.append('description',description)
+            formData.append('date',date)
+            formData.append('suggestion',suggestion)
+            var res =await fetch("/user/regscomplaint",{
+                method:"POST",
+                body:formData
+            });
+            res = await res.json();
+            console.log(res);
+            if(res.error){
+                Qual.errordb("Error", res.message);
+            }else
+            {
+                Qual.successdb("Success", res.message);
+               document.getElementById("vehicleForm").reset();
+
+            }
+        }
+    }
+
+
+
+     async function fetchbookeddata() {
+         try {
+             // console.log(service)
+             var res = await fetch('/user/fetchcomplaint');
+             res = await res.json();
+             var records = res.records;
+             console.log(records);
+
+             var html = ``;
+             for (var x of records) {
+
+
+                 let timestamp=x.date;
+                 let dateObj = new Date(timestamp);
+                 let issue = dateObj.toISOString().split("T")[0];
+
+
+                 html += `<tr>`
+                 html += `<td><div class=" col-md-4 mb-3" >
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Complaint Details</h5>
+        <p><strong>Description:</strong> <span id="gate">${x.description}</span></p>
+        <p><strong>Date:</strong> <span id="shift">${issue}</span></p>
+        <p><strong>Suggestion:</strong> <span id="shift">${x.suggestion}</span></p>
+        <p><strong>Status:</strong> <span id="shift" >${x.status}</span></p>
+
+
+                </div>
+</div></div></td>`
+
+                 html += `</tr>`
+
+             }
+             document.getElementById('cards2').innerHTML = html;
+         } catch (e) {
+             console.log(e.message);
+         }
+     }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

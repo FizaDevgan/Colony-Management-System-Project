@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Housa :: Create an Account</title>
+    <%- include('../partials/headerfiles.html') %>
+</head>
+<body>
+<%- include('../partials/indexheader') %>
+
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+<div class="space30"></div>
+<div class="inner-header-area">
+    <div class="containe-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="inner-header heading1">
+                    <h2>User Login</h2>
+                    <div class="space28"></div>
+                    <p><a href="/">Home</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                            <path d="M1.5 1.74997L7.75 7.99997L1.5 14.25" stroke="#1B1B1B" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        User Login
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="inner-images">
+                    <img src="/assets/img/all-images/hero/hero-img9.png" alt="housa">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space30"></div>
+<div class="row">
+    <form id="loginForm" >
+        <div class="col-md-8 offset-md-2">
+
+            <div class="form-group col-md-12 mb-4">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" id="email"
+                       placeholder="email" required>
+                <!--                        <div class="help-block with-errors"></div>-->
+            </div>
+
+            <div class="form-group col-md-12 mb-4">
+                <label for="password">Password</label>
+                <input type="password" name="pasword" class="form-control"
+                       id="password" placeholder="enter password" required>
+                <!--                        <div class="help-block with-errors"></div>-->
+            </div>
+
+
+            <div class="form-group col-md-8 mb-5">
+                <button type="button" onclick="LoginNow()" class="vl-btn1"
+                        style="margin-left: 210px">Login
+                </button>
+                <a href="/user/signup" class="vl-hero-btn ms-5">Create an Account</a>
+
+                <!--                        <div id="msgSubmit" class="h3 hidden"></div>-->
+            </div>
+            <!--<div class="form-group col-md-6 mb-5 text-end">
+
+            </div>-->
+        </div>
+    </form>
+
+</div>
+
+<%- include('../partials/footer.html') %>
+<%- include('../partials/scripts.html') %>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js"
+        charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+<!--<script src="https://code.jquery.com/jquery-3.7.1.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>-->
+
+<!-- Jquery Library File -->
+<!--<script src="/js/jquery-3.7.1.min.js"></script>-->
+<!-- Bootstrap js file -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Validator js file -->
+<!--<script src="/js/validator.min.js"></script>-->
+<!-- SlickNav js file -->
+<script src="/js/jquery.slicknav.js"></script>
+<!-- Swiper js file -->
+<script src="/js/swiper-bundle.min.js"></script>
+<!-- Counter js file -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Magnific js file -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- SmoothScroll -->
+<script src="/js/SmoothScroll.js"></script>
+<!-- Parallax js -->
+<script src="/js/parallaxie.js"></script>
+<!-- MagicCursor js file -->
+<script src="/js/gsap.min.js"></script>
+<!--<script src="/js/magiccursor.js"></script>-->
+<!-- Text Effect js file -->
+<script src="/js/SplitText.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<!-- YTPlayer js File -->
+<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<!-- Wow js file -->
+<script src="/js/wow.min.js"></script>
+<!-- Main Custom js file -->
+<script src="/js/function.js"></script>
+
+<script>
+    async function LoginNow() {
+        if ($("#loginForm").valid()) {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var res = await fetch("/user/login", {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
+            res = await res.json();
+            console.log(res);
+            if (res.error) {
+                Qual.errordb("Error", res.message);
+            } else {
+                Qual.successdb("Success", res.message);
+                //after 2 sec of delay send it to sigin pg
+                window.location.href = "/user/userdash";
+
+            }
+        }
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Housa :: Create an Account</title>
+    <%- include('../partials/headerfiles.html') %>
+
+    <!--<style>
+        label{
+            color: white;;
+            /*background-color: grey;*/
+            border-radius: 10px;
+        }
+
+        .error{
+            color: red;
+
+        }
+
+    </style>-->
+</head>
+<body>
+<%- include('../partials/indexheader') %>
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+<div class="space30"></div>
+<div class="inner-header-area">
+    <div class="containe-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="inner-header heading1">
+                    <h2>User Signup</h2>
+                    <div class="space28"></div>
+                    <p><a href="/">Home</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                            <path d="M1.5 1.74997L7.75 7.99997L1.5 14.25" stroke="#1B1B1B" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        User Signup
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="inner-images">
+                    <img src="/assets/img/all-images/hero/hero-img9.png" alt="housa">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space30"></div>
+<div class="profile-section-area">
+    <div class="container-fluid">
+        <div class="box-agent-avt">
+            <div class="col-lg-12">
+                <!-- Contact Form Start -->
+                <div class="contact-form ">
+                    <form id="loginForm" class="wow fadeInUp " data-wow-delay="0.25s">
+                        <div class="row">
+
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="name">Full Name</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder=" Full Name"
+                                       required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Email"
+                                       required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="phone">Contact Number</label>
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone"
+                                       required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="phone">Your Photo</label>
+                                <input type="file" name="photo" class="form-control" id="photo" placeholder="Your Photo"
+                                       required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+                            <div class="form-group col-md-6 mb-4">
+                                <label for="password">Password</label>
+                                <input type="password" name="pasword" class="form-control" id="password"
+                                       placeholder="enterpassword" required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+
+                            <div class="form-group col-md-6 mb-5">
+                                <label for="floor">Floor No./ Block Name</label>
+                                <input type="text" name="floor" class="form-control" id="floor"
+                                       placeholder="Floor No./ Block Name" required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+
+                            <div class="form-group col-md-6 mb-5">
+                                <label for="flat">Flat Number</label>
+                                <input type="text" name="flat" class="form-control" id="flat" placeholder="Flat No."
+                                       required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+                            <div class="form-group col-md-6 mb-5">
+                                <label for="members">Number of Family Members</label>
+                                <input type="text" name="members" class="form-control" id="members"
+                                       placeholder="number of family members" required>
+                                <!--                        <div class="help-block with-errors"></div>-->
+                            </div>
+
+                            <div class="form-group col-md-6 mb-5">
+                                <label for="date">Date of Move-in</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="form-group col-md-6 mb-5">
+                                <button type="button" onclick="RegisterNow()" class="vl-btn1"
+                                        style="margin-left: 170px">Create Account
+                                </button>
+
+
+                                <!--                        <div id="msgSubmit" class="h3 hidden"></div>-->
+                            </div>
+                            <div class="col-lg-6 mb-5">
+                                <a href="/" style="color: black ; margin-left: 210px" class="vl-hero-btn">Back</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Contact Form End -->
+            </div>
+        </div>
+    </div>
+</div>
+<%-include('../partials/footer.html')%>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js"
+        charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+<!--<script src="https://code.jquery.com/jquery-3.7.1.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>-->
+
+<!-- Jquery Library File -->
+<!--<script src="/js/jquery-3.7.1.min.js"></script>-->
+<!-- Bootstrap js file -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Validator js file -->
+<!--<script src="/js/validator.min.js"></script>-->
+<!-- SlickNav js file -->
+<script src="/js/jquery.slicknav.js"></script>
+<!-- Swiper js file -->
+<script src="/js/swiper-bundle.min.js"></script>
+<!-- Counter js file -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Magnific js file -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- SmoothScroll -->
+<script src="/js/SmoothScroll.js"></script>
+<!-- Parallax js -->
+<script src="/js/parallaxie.js"></script>
+<!-- MagicCursor js file -->
+<script src="/js/gsap.min.js"></script>
+<script src="/js/magiccursor.js"></script>
+<!-- Text Effect js file -->
+<script src="/js/SplitText.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<!-- YTPlayer js File -->
+<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<!-- Wow js file -->
+<script src="/js/wow.min.js"></script>
+<!-- Main Custom js file -->
+<script src="/js/function.js"></script>
+
+<script>
+    async function RegisterNow() {
+        if ($("#loginForm").valid()) {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("phone").value;
+            var password = document.getElementById("password").value;
+            var floor = document.getElementById("floor").value;
+            var flat = document.getElementById("flat").value;
+            var members = document.getElementById("members").value;
+            var date = document.getElementById("date").value;
+            var photo = document.getElementById("photo").files[0];
+            // console.log(firstname,lastname,city,photo);
+
+            var formData = new FormData();
+            formData.append('name', name)
+            formData.append('email', email)
+            formData.append('mobile', mobile)
+            formData.append('password', password)
+            formData.append('floor', floor)
+            formData.append('flat', flat)
+            formData.append('members', members)
+            formData.append('date', date)
+            formData.append('photo', photo)
+            var res = await fetch("/user/signupuser", {
+                method: "POST",
+                body: formData
+            });
+            res = await res.json();
+            console.log(res);
+            if (res.error) {
+                Qual.errordb("Error", res.message);
+            } else {
+                Qual.successdb("Success", res.message);
+                window.location.href = "/user/login";
+
+            }
+        }
+    }
+</script>
+
+
+</body>
+</html>

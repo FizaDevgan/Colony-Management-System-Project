@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Inclub - Single Property HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="/css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link href="/css/all.min.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="/css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="/css/custom.css" rel="stylesheet" media="screen">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--<style>
+        .container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .table-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+
+
+            border: 2px solid #ff7f00;
+        }
+        h2 {
+            color: #ff7f00;
+            font-weight: bold;
+            text-align: center;
+        }
+        .table {
+            margin-top: 20px;
+
+        }
+        .table thead {
+            background: #555;
+            color: white;
+        }
+        .btn-primary {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background: #ff7f00;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background: #cc6600;
+        }
+        .btn-danger {
+            background: #d9534f;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-danger:hover {
+            background: #b52b27;
+        }
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr:hover {
+            background-color: #ffe5cc;
+        }
+    </style>-->
+
+<%-include('../partials/headerfiles.html')%>
+</head>
+<body  onload="fetchdata()">
+
+<!-- Preloader Start -->
+<div class="preloader">
+    <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt=""></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
+<!-- Header Start -->
+<%-include('../partials/gaurdheader')%>
+<!-- Header End -->
+
+
+<!-- Page Header Start -->
+<div class="page-header parallaxie" style="background-image: url('/images/car2.jpg')" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Page Header Box Start -->
+                <div class="page-header-box">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">Resident's Vehicle</h1>
+
+                </div>
+                <!-- Page Header Box End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Section Title Start -->
+<div class="section-title text-center mt-2">
+
+    <h2 class="text-anime-style-2 text-dark" data-cursor="-opaque">Details<span> of Resident's Vehicles</span></h2>
+</div>
+<!-- Section Title End -->
+
+
+
+<div class="container">
+    <div class="table-container">
+        <h2>Visitor Details</h2>
+        <table class="table table-striped table-responsive-lg table-hover  border table-bordered border-2">
+            <thead>
+            <tr>
+
+                <th>Resident Name</th>
+                <th> Email</th>
+                <th>Owner Name</th>
+                <th>Type Of Vehicle</th>
+                <th>Vehicle Number</th>
+                <th>Rc Photo</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="tablebody">
+            <!-- Rows will be added dynamically -->
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+<%-include('../partials/footer.html')%>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<<!-- Jquery Library File -->
+<script src="/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap js file -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Validator js file -->
+<script src="/js/validator.min.js"></script>
+<!-- SlickNav js file -->
+<script src="/js/jquery.slicknav.js"></script>
+<!-- Swiper js file -->
+<script src="/js/swiper-bundle.min.js"></script>
+<!-- Counter js file -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Magnific js file -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- SmoothScroll -->
+<script src="/js/SmoothScroll.js"></script>
+<!-- Parallax js -->
+<script src="/js/parallaxie.js"></script>
+<!-- MagicCursor js file -->
+<!--<script src="/js/gsap.min.js"></script>-->
+<!--<script src="/js/magiccursor.js"></script>-->
+<!-- Text Effect js file -->
+<script src="/js/SplitText.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<!-- YTPlayer js File -->
+<script src="/js/jquery.mb.YTPlayer.min.js"></script>
+<!-- Wow js file -->
+<script src="/js/wow.min.js"></script>
+<!-- Main Custom js file -->
+<script src="/js/function.js"></script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-validation/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="/email.js"></script>
+
+
+
+
+<script>
+
+
+    async function fetchdata()
+    {
+        try{
+
+            var res =await fetch('/vehicaldata');
+            res = await res.json();
+            var records = res.records;
+            var html=``;
+            console.log(records);
+            for(var x of records)
+            {
+                html+=`<tr>`
+                html+=`<td>${x.user.name}</td>`
+                html+=`<td>${x.email}</td>`
+                html+=`<td>${x.oname}</td>`
+                html+=`<td>${x.type}</td>`
+                html+=`<td>${x.vnumber}</td>`
+                html+=`<td><img src="${x.rc}"></td>`
+                html+=`<td>${x.status}</td>`
+                if(x.status=="pending") {
+                    html += ` <td><button type="button" class ="btn btn-success border-white " onclick="visited(${x.id})">Approve</button></td>`
+                }
+                html+=`</tr>`
+            }
+            document.getElementById('tablebody').innerHTML=html;
+        }catch(e)
+        {
+            console.log(e.message);
+        }
+    }
+
+
+    async function visited(id){
+        try{
+            var status ='approve';
+            var res = await fetch('/changestatus2/'+ id, {method:'PUT',
+                headers:{'Content-Type':'application/json'},
+                body: JSON. stringify({
+                    status:status
+                })
+            });
+            res = await res.json();
+
+        }catch (e)
+        {
+            console.log(e.message);
+        }
+    }
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
